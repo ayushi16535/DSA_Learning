@@ -1,9 +1,10 @@
+//https://www.interviewbit.com/problems/merge-overlapping-intervals/
+
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Collections;
 import java.util.Comparator;
-
-public class MergeIntervals {
+public class MergeOverlappingIntervals {
 
     public static void sortbyColumn(int arr[][], int col)
     {
