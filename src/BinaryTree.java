@@ -1,3 +1,5 @@
+import java.util.Scanner;
+
 class TreeNode{
     int data;
     TreeNode leftChild;
@@ -5,19 +7,61 @@ class TreeNode{
 
     TreeNode(int data){
         this.data=data;
-        this.leftChild=null;
-        this.rightChild=null;
     }
 }
 public class BinaryTree {
+    static Scanner sc;
     public static void main(String[] args) {
-        create();
+        sc= new Scanner(System.in);
+        TreeNode root= create();
+        preorder(root);
+        System.out.println();
+        inorder(root);
+        System.out.println();
+        postorder(root);
+        System.out.println();
     }
-    public static  void  create(){
-        TreeNode root=new TreeNode(4);
-        root.leftChild=new TreeNode(1);
-        root.rightChild=new TreeNode(5);
-        root.leftChild.leftChild=new TreeNode(0);
-        System.out.println(root.leftChild.leftChild.data);
+
+    private static void postorder(TreeNode root) {
+        //Left Right Root
+        if(root!=null){
+            postorder(root.leftChild);
+            postorder(root.rightChild);
+            System.out.print(root.data+" ");
+        }
+    }
+
+    private static void inorder(TreeNode root) {
+        //Left Root Right
+        if(root!=null)
+        {
+            inorder(root.leftChild);
+            System.out.print(root.data+" ");
+            inorder(root.rightChild);
+        }
+    }
+
+    private static void preorder(TreeNode root) {
+        //Root Left Right
+        if(root!=null){
+            System.out.print(root.data+" ");
+            preorder(root.leftChild);
+            preorder(root.rightChild);
+        }
+    }
+
+    public static TreeNode create(){
+
+        System.out.print("Enter Data : ");
+        int data=sc.nextInt();
+        if(data==-1)
+            return null;
+        TreeNode node=new TreeNode(data);
+        System.out.println("Enter left for "+data);
+        node.leftChild=create();
+        System.out.println("Enter right for "+data);
+        node.rightChild=create();
+
+        return node;
     }
 }

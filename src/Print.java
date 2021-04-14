@@ -4,7 +4,7 @@ public class Print {
         for (int i = 0; i < a.length; i++) {
             array+=a[i]+",";
         }
-        array+="]";
+        array= array.substring(0,array.length()-1)+"]";
         System.out.println(array);
     }
 

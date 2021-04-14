@@ -1,6 +1,7 @@
+//https://www.youtube.com/watch?v=JMxl5rk7kGo&list=PLKKfKV1b9e8ps6dD3QA5KFfHdiWj9cB1s&index=58
 import java.util.HashSet;
 
-public class Permutation {
+public class PermutationString {
 //    static int count=0;
     static HashSet<String> hs=new HashSet<>();
     public static void main(String[] args) {
