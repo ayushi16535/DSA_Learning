@@ -13,12 +13,12 @@ public class LongestCommonSubsequence {
         int n2=s2.length();
         int a[][]=new int[n1+1][n2+1];
         boolean flag[][]=new boolean[n1+1][n2+1];
-        for (int i = 0; i <=n1 ; i++) {
-            a[i][0]=0;
-        }
-        for (int i = 0; i <=n2 ; i++) {
-            a[0][i]=0;
-        }
+//        for (int i = 0; i <=n1 ; i++) {
+//            a[i][0]=0;
+//        }
+//        for (int i = 0; i <=n2 ; i++) {
+//            a[0][i]=0;
+//        }
         int i,j=0;
         for ( i = 1; i <=n1; i++) {
             for ( j = 1; j <=n2 ; j++) {

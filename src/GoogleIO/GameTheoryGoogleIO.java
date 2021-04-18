@@ -1,10 +1,12 @@
+package GoogleIO;
+
 import java.io.BufferedReader;
 import java.io.InputStreamReader;
 import java.util.*;
 
 import static java.lang.Integer.parseInt;
 
-public class Solution{
+public class GameTheoryGoogleIO {
     public static void main(String[] args) {
         Scanner in = new Scanner(new BufferedReader(new InputStreamReader(System.in)));
 
@@ -21,23 +23,17 @@ public class Solution{
         }
     }
 
-    private static String winner(String str,int l,int r,char player) {
+    private static int winner(String str,int l,int r,char player) {
         char nextPlayer = player=='I'?'O':'I';
         int left=-1,right=-1;
         if(l>r)
-            return nextPlayer+" "+1;
+            return 1;
         if(str.charAt(l)!=player && str.charAt(r)!=player)
-            return nextPlayer+" "+(r-l+2);
+            return (r-l+2);
         else if(str.charAt(l)==player && str.charAt(r)==player) {
-            String leftstr=winner(str, l + 1, r, nextPlayer);
-            String rightstr=winner(str, l, r - 1, nextPlayer);
-            left = Integer.parseInt(leftstr.split(" ")[1]);
-            right = Integer.parseInt(rightstr.split(" ")[1]);
-
-            if(left>right)
-                return leftstr;
-            else
-                return rightstr;
+            left = winner(str, l + 1, r, nextPlayer);
+            right = winner(str, l, r - 1, nextPlayer);
+            return Math.max(left,right);
         }
         else if(str.charAt(l)==player){
             return winner(str, l + 1, r, nextPlayer);
@@ -46,4 +42,4 @@ public class Solution{
             return winner(str, l, r - 1, nextPlayer);
         }
     }
-    }
+}

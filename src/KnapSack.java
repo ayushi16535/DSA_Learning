@@ -2,9 +2,9 @@ public class KnapSack {
 
     //KnapSack 0/1 DP jenny's
     public static void main(String[] args) {
-        int weights[]={3,4,5,6};
-        int profits[]={2,3,4,1};
-        int w=10;
+        int weights[]={1,3,4,6};
+        int profits[]={20,30,10,50};
+        int w=5;
         System.out.print("Weights = ");
         Print.printArray(weights);
         System.out.print("Profit = ");
@@ -26,7 +26,7 @@ public class KnapSack {
                 if(weights[i-1]>j)
                     a[i][j]=a[i-1][j];
                 else
-                    a[i][j]=Math.max(a[i-1][j],profits[i-1]+a[i][j-weights[i-1]]);
+                    a[i][j]=Math.max(a[i-1][j],profits[i-1]+a[i-1][j-weights[i-1]]);
             }
 
         }
