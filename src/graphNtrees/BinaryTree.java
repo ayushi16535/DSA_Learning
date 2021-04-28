@@ -1,3 +1,5 @@
+package graphNtrees;
+
 import java.util.Scanner;
 
 class TreeNode{
