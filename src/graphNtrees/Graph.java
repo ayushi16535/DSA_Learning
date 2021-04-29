@@ -22,8 +22,9 @@ public class Graph {
     }
 
     //directed
-    public void addDirectedEdge(int source, int destination){
+    public Graph addDirectedEdge(int source, int destination){
         ad[source].add(destination);
+        return this;
     }
 
     //bfs using queue
